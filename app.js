@@ -3,10 +3,15 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
-
+const mongoose = require('mongoose');
 
 const productRoutes = require('./api/routes/products');
 const orderRoutes = require('./api/routes/orders');
+
+mongoose.connect('mongodb+srv://noderest:'+ process.env.MONGO_ATLAS_PW +'@node-rest.8tj5nsk.mongodb.net/?retryWrites=true&w=majority',{
+    
+});
+// mongoose.connect('mongodb://localhost/myapp', { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: false}));
