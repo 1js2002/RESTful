@@ -13,6 +13,8 @@ mongoose.connect('mongodb+srv://noderest:'+ process.env.MONGO_ATLAS_PW +'@node-r
 });
 // mongoose.connect('mongodb://localhost/myapp', { useNewUrlParser: true, useUnifiedTopology: true });
 
+mongoose.promise = global.promise
+
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
